@@ -17,3 +17,12 @@ function previewImage() {
     };
 }
 
+const alert = document.querySelector("#alert-box");
+
+alert.addEventListener("DOMContentLoaded", (event) => {});
+setTimeout(() => {
+    if (alert) {
+        alert.style.display = "none";
+        alert.style.transition = "all 0.5s ease";
+    }
+}, 50000);

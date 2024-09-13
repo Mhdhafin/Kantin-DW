@@ -11,15 +11,20 @@ class DashboardProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.products.index', [
+            'title' => 'Products',
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('dashboard.products.create', [
+            'title' => 'Create Products',
+        ]);
     }
 
     /**
