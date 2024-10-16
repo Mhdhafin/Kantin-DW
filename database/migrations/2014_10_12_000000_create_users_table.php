@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->nullable()->default('/storage/avatars/user.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->softDeletes();

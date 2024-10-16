@@ -8,6 +8,7 @@ function previewImage() {
     // imgPreview.style.display = "block";
     // label.style.display = "none";
     // label2.style.display = "none";
+    imgPreview.style.width = "80px";
 
     const oFReader = new FileReader();
     oFReader.readAsDataURL(image.files[0]);
@@ -16,13 +17,3 @@ function previewImage() {
         imgPreview.src = oFREvent.target.result;
     };
 }
-
-const alert = document.querySelector("#alert-box");
-
-alert.addEventListener("DOMContentLoaded", (event) => {});
-setTimeout(() => {
-    if (alert) {
-        alert.style.display = "none";
-        alert.style.transition = "all 0.5s ease";
-    }
-}, 50000);

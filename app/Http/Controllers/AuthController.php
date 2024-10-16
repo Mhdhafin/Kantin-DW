@@ -12,20 +12,17 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('login', [
+        return view('layouts.login', [
             'title' => 'Login Page'
         ]);
     }
 
     public function loginPost(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
 
 
-        if (Auth::attempt($credentials)) {
+
+        if (Auth::attempt($request->only(['email', 'password']))) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         } else {
@@ -47,6 +44,8 @@ class AuthController extends Controller
         ]);
     }
 
+
+
     public function registerPost(registerRequest $request)
     {
 
@@ -63,9 +62,13 @@ class AuthController extends Controller
 
         $user['profile_picture'] = $file ? $file->storeAs("user-image/$year", uniqid() . '.' . $file->getClientOriginalExtension(), 'public') : null;
 
+        if (!$request->file('profile_picture')) {
+            $user['profile_picture'] = '/storage/avatars/user.png';
+        }
+
         User::create($user);
 
-        return redirect()->back()->with('success', 'Register Successfully');
+        return redirect()->back()->with('success', 'Registrasi Berhasil Dilakukan!');
     }
 
     public function logout(Request $request)

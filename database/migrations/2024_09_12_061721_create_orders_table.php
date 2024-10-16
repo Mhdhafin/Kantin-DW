@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id');
+            $table->foreignUuid('user_id')->constrained('users');
             $table->enum('status_order', ['Pending', 'Processing', 'Completed', 'Cancelled'])->default('Pending');
-            $table->integer('total_price');
+            $table->double('total_price')->default(0);
             $table->timestamps();
         });
     }

@@ -2,24 +2,31 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
 
-    protected $fillabel = [
+    protected $fillable = [
         'name',
-        'description',
         'category_id',
-        'image',
+        'price',
+        'stock',
+        'image'
     ];
 
     public function category()
     {
-        $this->hasMany(category::class);
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function detail_order()
+    {
+        return $this->hasMany(Order_detail::class, 'order_detail_id');
     }
 
     /**

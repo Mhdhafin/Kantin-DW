@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('product_id');
-            $table->foreignUuid('order_id');
+            $table->foreignUuid('order_id')->constrained('orders');
+            $table->foreignUuid('product_id')->constrained('products');
             $table->integer('quantity')->default(0);
-            $table->double('total_price')->default(0);
+            $table->double('price')->default(0);
             $table->timestamps();
         });
     }

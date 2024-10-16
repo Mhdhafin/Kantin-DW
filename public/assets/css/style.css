@@ -1,125 +1,3 @@
-body {
-    -webkit-background-color: #ffff !important;
-    -khtml-background-color: #ffff !important;
-    -moz-background-color: #ffff !important;
-    -ms-background-color: #ffff !important;
-}
-
-h1 {
-    display: block;
-    font-size: 2em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-}
-
-h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-}
-
-h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-}
-
-h4 {
-    display: block;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-}
-
-h5 {
-    display: block;
-    font-size: 0.83em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-}
-
-h6 {
-    display: block;
-    font-size: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-}
-
-ul {
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
-ol {
-    list-style-type: decimal;
-    list-style-position: inside;
-}
-
-ul ul,
-ol ul {
-    list-style-type: circle;
-    list-style-position: inside;
-    margin-left: 15px;
-}
-
-ol > li {
-    list-style-type: decimal;
-}
-
-blockquote {
-    font-style: italic;
-    font-weight: 600;
-}
-
-ol ol,
-ul ol {
-    list-style-type: lower-latin;
-    list-style-position: inside;
-    margin-left: 15px;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
-
-* {
-    font-family: "Mulish", sans-serif;
-    border: 1px solid black !importan;
-}
-
-/* SCROLLBAR */
-
-*::-webkit-scrollbar {
-    display: none !important;
-}
-
-/* Hide scrollbar for Firefox */
-* {
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-/* Hide scrollbar for IE, Edge */
-* {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-}
-
-/* Ensure scrolling is still possible */
-
-.gradient-main {
-    background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
-}
-
-.border-none-input {
-    border: none !important;
-}
-
 /* BOTTOM BAR */
 
 .navigation {
@@ -127,7 +5,7 @@ ul ol {
     bottom: 0;
     width: 100%;
     height: 70px;
-    background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
+    background-image: linear-gradient(to bottom right, #ffe629, #665417);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,7 +73,7 @@ ul ol {
     top: -50%;
     width: 70px;
     height: 70px;
-    background-image: linear-gradient(to bottom right, #00a1e9, #6367b0);
+    background-image: linear-gradient(to bottom right, #ffe629, #665417);
     border-radius: 50%;
     border: 6px solid white;
     transition: 0.5s;
@@ -256,19 +134,22 @@ ul ol {
     background-color: rgba(0, 0, 0, 0.54);
 }
 
-/* Style untuk div pertama (desktop) */
 .desktop {
-    background-color: #007bff; /* Biru */
-    display: none; /* Default tidak tampil */
+    display: block; /* Tampilkan elemen desktop secara default */
 }
 
-/* Media query untuk lebar layar desktop */
-@media (min-width: 768px) {
+.mobile {
+    display: none; /* Sembunyikan elemen mobile secara default */
+}
+
+/* Media query untuk tampilan mobile */
+@media (max-width: 768px) {
+    /* Atur lebar ini sesuai kebutuhan */
     .desktop {
-        display: block; /* Tampil di layar desktop */
+        display: none; /* Sembunyikan elemen desktop di mobile */
     }
 
     .mobile {
-        display: none; /* Tidak tampil di layar desktop */
+        display: block; /* Tampilkan elemen mobile di mobile */
     }
 }
