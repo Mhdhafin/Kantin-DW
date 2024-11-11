@@ -1,14 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\SnackController;
+use App\Http\Controllers\LainnyaController;
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\MinumanController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SnackController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LainnyaController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\DashboardProductController;
 
 
 /*
@@ -24,34 +25,36 @@ use App\Http\Controllers\LainnyaController;
 */
 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('home', [
+            'title' => 'Home Page'
+        ]);
+    });
 
+    Route::get('/transaction', function () {
+        return view('transaction', [
+            'title' => 'Transaction Page'
+        ]);
+    });
 
-Route::get('/', function () {
-    return view('home', [
+    // Profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/edit/{user:id}', [ProfileController::class, 'edit'])->name('profileEdit');
+    Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profileUpdate');
+    // Forgot Password
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgot-password');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'verify'])->name('forgot-password.email');
 
-        'title' => 'Home Page'
-    ]);
+    Route::get('/forgot-password/{user}', [ForgotPasswordController::class, 'edit'])->name('edit-password');
+
+    // Category
+    Route::get('/category/makanan', [MakananController::class, 'index']);
+    Route::get('/category/makanan/{id}', [MakananController::class, 'show']);
+    Route::get('/category/minuman', [MinumanController::class, 'index']);
+    Route::get('/category/snack', [SnackController::class, 'index']);
+    Route::get('/category/lainnya', [LainnyaController::class, 'index']);
 });
-
-Route::get('/transaction', function () {
-    return view('transaction', [
-        'title' => 'Transaction Page'
-    ]);
-});
-
-// Profile
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profileEdit');
-Route::put('/profile/edit/{user}', [ProfileController::class, 'update'])->name('profileUpdate');
-
-// Category
-Route::get('/category/makanan', [MakananController::class, 'index']);
-Route::get('/category/makanan/{id}', [MakananController::class, 'show']);
-Route::get('/category/minuman', [MinumanController::class, 'index']);
-Route::get('/category/snack', [SnackController::class, 'index']);
-Route::get('/category/lainnya', [LainnyaController::class, 'index']);
-// });
 
 
 

@@ -21,11 +21,11 @@ class ProfileController extends Controller
     public function edit(User $user)
     {
 
-        $user->where('id', auth()->user()->id)->first();
+        // $user->where('id', auth()->user()->id)->first();
 
         return view('profile.edit', [
             'title' => 'Profile Edit',
-            'user' => $user
+            'users' => $user
         ]);
     }
 
@@ -33,6 +33,7 @@ class ProfileController extends Controller
     {
 
         $data = $request->user->fill($request->validated());
+
 
         $year = Carbon::now()->format('Y');
         $file = $request->file('profile_picture');

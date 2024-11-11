@@ -9,6 +9,14 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    {{-- Custom Css --}}
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    {{-- Sweet alert --}}
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
 
     {{-- Alpine Js --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
@@ -27,8 +35,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="/assets/css/codebase.css">
-    <script src="/assets/js/activator.js"></script>
+    {{-- <link rel="stylesheet" href="/assets/css/codebase.css">
+    <script src="/assets/js/activator.js"></script> --}}
 
 
     {{-- CSS --}}
@@ -74,10 +82,25 @@
     <script src="/assets/js/custom.js"></script>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
     <script>
+        window.onload = function() {
+            const userName = {{ Auth::user()->name }};
+
+
+            swal.getPopup({
+                title: "Selamat Datang!",
+                text: `Hai, ${userName}! Selamat datang di halaman utama.`,
+                icon: "success",
+                button: "Oke"
+            });
+        };
+
+
+
+
         document.addEventListener('DOMContentLoaded', function() {
             new Rellax('.rellax');
         });

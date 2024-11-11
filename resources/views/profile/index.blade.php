@@ -1,13 +1,9 @@
 <x-layouts>
     <x-slot name="title">{{ $title }}</x-slot>
 
-    <section class="pt-5">
-
-
+    <section class="p-5">
 
         <header class="flex justify-between mr-2 items-center">
-
-
 
             <a href="" class="opacity-0 cursor-default m-2 w-12 h-12 bg-slate-100 rounded-full shadow-md">
                 <div class="px-4 text-green-600 hover:text-green-900 font-semibold py-3">
@@ -19,15 +15,15 @@
                 <h2 class="text-xl font-semibold" name="title">{{ $title }}</h2>
             </div>
 
-            {{-- <a href="/profile/edit/{{ auth()->user()->id }}" class="m-2 w-12 h-12 bg-slate-100 rounded-full shadow-md">
+            <a href="/profile/edit/{{ auth()->user()->id }}" class="m-2 w-12 h-12 bg-slate-100 rounded-full shadow-md">
                 <div class="px-4 text-green-600 hover:text-green-900 font-semibold py-3">
                     <i class="far fa-pen fa-xl"></i>
                 </div>
-            </a> --}}
+            </a>
 
 
 
-            <div x-data="{ modal: false }">
+            {{-- <div x-data="{ modal: false }">
                 <!-- Login Button -->
                 <button @click="modal = !modal" :aria-expanded="modal ? 'true' : 'false'"
                     class="m-2 w-12 h-12 bg-slate-100 rounded-full shadow-md">
@@ -137,7 +133,7 @@
                                                     </a>
 
                                                 </div>
-                                            </div>  
+                                            </div>
 
                                             <div class="!mt-8">
                                                 <button type="submit"
@@ -148,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </header>
 
 

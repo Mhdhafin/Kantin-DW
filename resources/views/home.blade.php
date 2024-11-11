@@ -3,6 +3,8 @@
 
     @include('partials.navbar')
 
+    
+
     <section class="pt-27 pb-32 ">
 
         <div class="block w-full px-4">

@@ -24,17 +24,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only(['email', 'password']))) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/')->with('success', 'Selamat Datang ' . Auth::user()->name);
         } else {
 
             return redirect()->back()->with('error', 'Email Or Password Invalid');
         }
-
-
-
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ]);
     }
 
     public function register()
