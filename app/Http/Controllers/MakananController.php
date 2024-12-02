@@ -29,7 +29,7 @@ class MakananController extends Controller
 
         return view('category.makanan.show', [
             'title' => 'Makanan',
-            'product' => $makanan
+            'products' => $makanan
         ]);
     }
 }

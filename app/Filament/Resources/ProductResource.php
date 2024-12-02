@@ -38,7 +38,7 @@ class ProductResource extends Resource
                         Select::make('category_id')->label("Category")->required()->options(
                             Category::all()->pluck('name', 'id')->toArray('name')
                         )->searchable()->reactive(),
-                        FileUpload::make('image')->label("Uploud Image")->image()->disk('public')->directory('image-product')
+                        FileUpload::make('image')->label("Uploud Image")->image()->disk('public')
                     ])
                     ->columns(2),
             ]);
